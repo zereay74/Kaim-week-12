@@ -26,3 +26,5 @@ venv/
 env/
 .venv/
 comand_pad.txt
+
+Test_Notebook.ipynb
