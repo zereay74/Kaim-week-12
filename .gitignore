@@ -28,3 +28,5 @@ env/
 comand_pad.txt
 
 Test_Notebook.ipynb
+*.pkl
+*.h5
