@@ -40,3 +40,13 @@ Feature Importance:
 2025-03-08 13:54:55,241 - INFO - Plotting predictions...
 2025-03-08 13:55:12,099 - INFO - Plotting predictions...
 2025-03-08 13:55:12,987 - INFO - Plotting predictions...
+2025-03-10 09:17:39,311 - INFO - Data loaded successfully!
+2025-03-10 09:17:43,350 - INFO - Merging completed successfully!
+2025-03-10 09:17:53,707 - INFO - Dropped 692883 rows.
+2025-03-10 09:18:09,175 - INFO - Dropped 26256 rows.
+2025-03-10 09:18:24,742 - INFO - Extracting features for train and test datasets.
+2025-03-10 09:18:26,595 - INFO - Scaler saved successfully!
+2025-03-10 09:26:14,567 - INFO - Data loaded successfully!
+2025-03-10 09:26:17,074 - INFO - Merging completed successfully!
+2025-03-10 09:26:24,481 - INFO - Dropped 692883 rows.
+2025-03-10 09:26:34,187 - INFO - Dropped 26256 rows.
