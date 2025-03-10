@@ -16,6 +16,7 @@ from tensorflow.keras.layers import LSTM, Dense, Dropout
 import matplotlib.pyplot as plt
 from tqdm import tqdm  # Import tqdm for progress bar
 from sklearn.inspection import permutation_importance
+from sklearn.preprocessing import StandardScaler
 
 # Set up logging
 log_dir = os.path.join(os.path.dirname(__file__), '..', 'logs')
@@ -176,13 +177,17 @@ class SalesPredictionPipeline:
         # Split the data into train and validation sets
         X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
         
-        # Scale the data using StandardScaler only on numeric columns
-        X_train = self.scaler.fit_transform(X_train[numeric_columns])
-        X_val = self.scaler.transform(X_val[numeric_columns])
-        X_test = self.scaler.transform(self.test_df[numeric_columns])
-        
-        return X_train, X_val, y_train, y_val, X_test
+        # Initialize and fit scaler
+        scaler = StandardScaler()
+        X_train_scaled = scaler.fit_transform(X_train[numeric_columns])
+        X_val_scaled = scaler.transform(X_val[numeric_columns])
+        X_test_scaled = scaler.transform(self.test_df[numeric_columns])
 
+        # Save the trained scaler
+        joblib.dump(scaler, "../models/scaler.pkl")
+        logging.info("Scaler saved successfully!")
+        
+        return X_train_scaled, X_val_scaled, y_train, y_val, X_test_scaled
     
     def train_models(self, X_train, X_val, y_train, y_val):
         models = {
